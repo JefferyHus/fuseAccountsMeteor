@@ -1,0 +1,24 @@
+<template name="signin">
+	<div class="signin col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="row">
+					<h2>SignIn with</h2>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="container text-center">
+					<form id="loginform">
+						{{#each provider}}
+						<div class="form-group provider {{name}}" data-provider="{{name}}">
+							<button class="btn btn-default">
+								<i class="fa fa-{{icon}}"></i>
+							</button>
+						</div>
+						{{/each}}
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

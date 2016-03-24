@@ -1,0 +1,38 @@
+@import url(https://fonts.googleapis.com/css?family=Passion+One);
+
+.signin{
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.signin .panel{
+	border-radius: 0;
+}
+.signin .panel .panel-heading h2{
+	padding: 0 10px;
+	font-family: 'Passion One', cursive;
+}
+.signin .provider{
+	display: inline-block;
+	width: 20vw;
+	height: 50vh;
+	padding: 5vh 5vw;
+}
+.signin .provider button.btn{
+	width: 100%;
+	height: 100%;
+	border: 0;
+	background: none;
+    color: #fff;
+    font-size: 3vw;
+}
+.facebook{
+	background: #3b5998;
+}
+.twitter{
+	background: #55acee;
+}
+.google{
+	background: #dd4b39;
+}

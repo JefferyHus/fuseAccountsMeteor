@@ -1,0 +1,35 @@
+<template name="welcomen">
+	<!-- Menu -->
+	<nav class="menu" id="theMenu">
+		<div class="menu-wrap">
+			<h1 class="logo"><a href="index.html#home">Jsama</a></h1>
+			<i class="fa fa-remove menu-close"></i>
+			<a href="#" id="logout" class="smoothScroll">Logout</a>
+			{{#each provider}}
+			<a href="#" class="provider {{connectedProviders name}}" data-provider="{{name}}"><i class="fa fa-{{icon}}"></i></a>
+			{{/each}}
+		</div>
+		
+		<!-- Menu button -->
+		<div id="menuToggle"><i class="fa fa-reorder"></i></div>
+	</nav>
+	<!-- ========== HEADER SECTION ========== -->
+	<section id="home" name="home"></section>
+	<div id="headerwrap">
+		<div class="container">
+			<div class="logo">
+				<img src="/logo.png">
+			</div>
+			<br>
+			<div class="row">
+				<h1>JSAMA MERGE - Meteor Solution</h1>
+				<br>
+				<h3>Hello, Welcome {{user.profile.name}} to our Application. Jsama Welcomen.</h3>
+				<br>
+				<br>
+				<div class="col-lg-6 col-lg-offset-3">
+				</div>
+			</div>
+		</div><!-- /container -->
+	</div><!-- /headerwrap -->
+</template>
