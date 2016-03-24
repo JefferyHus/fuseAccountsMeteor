@@ -32,15 +32,18 @@ _startAccountsSettings = function(){
 
 JsamaMerge.beforeFuse = function(oldAccount, newAccount){
 
-	var mergeItOrNot = false;
+	var mergeItOrNot = true;
+
+	console.log(oldAccount);
+	console.log(newAccount);
 
 	var users = Meteor.users.find().fetch(); //get all the current user object
 
 	var currentUserProviderID = "foolish"; //this variable is where we gonna store the provider id
 
-	if(newAccount.id){
+	if(newAccount.id) {
 		currentUserProviderID = newAccount.id;
-	}else{
+	} else {
 		//loop through the user's services object and store the provider id
 		for(let service in newAccount.services){
 			currentUserProviderID = newAccount.services[service].id;
@@ -59,6 +62,22 @@ JsamaMerge.beforeFuse = function(oldAccount, newAccount){
 		}
 	}
 
+	console.log("newAccount._id", newAccount._id);
+	var newAccountProfile = Profiles.findOne( { owner : newAccount._id } );
+	if( newAccountProfile ) {
+		mergeItOrNot = false;
+		console.log("This Account is already used in Alerti");
+	}
+
     //return the false or true
 	return mergeItOrNot;
-}
+};
+
+Meteor.methods( {
+	"initProfile" : function() {
+		var userID = this.userId;
+		var profile = Profiles.findOne( { owner : userID } );
+		if( profile ) return;
+		Profiles.insert( { owner : userID } );
+	}
+} );

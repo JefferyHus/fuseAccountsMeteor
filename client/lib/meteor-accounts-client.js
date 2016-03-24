@@ -38,6 +38,13 @@ Meteor.signInWithExternalService = function (service, options, callback) {
 
     // Not logged in, logging in now.
     if (!oldUserId) {
+      Meteor.call("initProfile", function(error, result) { 
+        if( error ) {
+          console.log("Error on initProfile");
+          return;
+        }
+        console.log("initProfile OK");
+      });
       if (typeof callback === 'function') callback ();
       return;
     }
